@@ -20,6 +20,7 @@ class HomePage extends StatelessWidget{
                     horizontal: 30,
                 ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,6 +43,32 @@ class HomePage extends StatelessWidget{
                       ),
                     ],
                   ),
+
+                  // Cara 1 recommend for complex layout
+                  // Row(
+                  //   children: [
+                  //     Icon(
+                  //       Icons.favorite,
+                  //       color: Color(0xffFFB800),
+                  //     ),
+                  //     Padding(
+                  //         padding: EdgeInsets.fromLTRB(2, 0, 0, 0),
+                  //     ),
+                  //     Text("4.2"),
+                  //   ],
+                  // ),
+
+                  //  Cara 2
+                  Spacer(),
+                  Icon(
+                    Icons.favorite,
+                    color: Color(0xffFFB800),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(2, 0, 0, 0),
+                  ),
+                  Text("4.2"),
+
                 ],
               ),
             ),
