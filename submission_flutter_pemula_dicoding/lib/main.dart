@@ -154,9 +154,30 @@ class MainScreen extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height : 10.0),
-          Container(
-            
+          const SizedBox(height : 15.0),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget> [
+              Text(
+                "Today",
+                style: TextStyle(
+                  color: Colors.grey,
+                ),
+              ),
+              Text("Popular"),
+              Text(
+                "Best Seller",
+                style: TextStyle(
+                color: Colors.grey,
+                ),
+              ),
+              Text(
+                "Vegetarian",
+                style: TextStyle(
+                color: Colors.grey,
+                ),
+              ),
+            ],
           ),
         ],
       ),
