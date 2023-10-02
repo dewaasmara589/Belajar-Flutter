@@ -10,10 +10,20 @@ class MyApp extends StatelessWidget{
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home:  const MainScreen(),
+      home:  MainScreen(),
     );
   }
 }
+
+final List<String> _listItem = [
+  'assets/images/content1.jpg',
+  'assets/images/content1.jpg',
+  'assets/images/content1.jpg',
+  'assets/images/content1.jpg',
+  'assets/images/content1.jpg',
+  'assets/images/content1.jpg',
+  'assets/images/content1.jpg'
+];
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -154,7 +164,7 @@ class MainScreen extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height : 15.0),
+          const SizedBox(height : 10.0),
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget> [
@@ -179,6 +189,91 @@ class MainScreen extends StatelessWidget {
               ),
             ],
           ),
+          const SizedBox(height: 5.0,),
+
+          Expanded(
+              child: GridView.count(
+                crossAxisCount: 2,
+                padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                crossAxisSpacing: 0.0,
+                mainAxisSpacing: 0.0,
+                children: _listItem.map((item) => Card(
+                  child: Container(
+                    alignment: Alignment.center,// use aligment
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      // border: Border.all(color: Colors.black),
+                    ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          ClipRRect(
+                            borderRadius: const BorderRadius.all(
+                                Radius.circular(5.0)
+                            ),
+                            child : Image.asset(
+                              item,
+                              height: 85,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          const SizedBox(height: 3,),
+                          const Text('Test',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const Text('Test Sub Title',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color : Colors.grey,
+                              fontSize: 12.0,
+                            ),
+                          ),
+                          const SizedBox(height: 3,),
+                          const Row(
+                            crossAxisAlignment : CrossAxisAlignment.center,
+                            mainAxisAlignment : MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.star,
+                                color: Colors.orange,
+                                size: 15.0,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 2.0),
+                                child : Text('5.0', style: TextStyle(fontSize: 12.0),),
+                              ),
+                              Text('|'),
+                              SizedBox(width: 2.0,),
+                              Icon(
+                                Icons.delivery_dining_sharp,
+                                color: Colors.orange,
+                                size: 15.0,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 2.0),
+                                child : Text('5-10 min', style: TextStyle(fontSize: 12.0),),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 3,),
+                          const Text('Rp 10.000',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                  ),
+                ),).toList(),
+              ),
+          ),
+
         ],
       ),
     );
