@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:submission_flutter_pemula_dicoding/dataModel.dart';
 
 void main() => runApp(const MyApp());
 
@@ -10,19 +11,75 @@ class MyApp extends StatelessWidget{
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home:  MainScreen(),
+      home:  const MainScreen(),
     );
   }
 }
 
-final List<String> _listItem = [
-  'assets/images/content1.jpg',
-  'assets/images/content1.jpg',
-  'assets/images/content1.jpg',
-  'assets/images/content1.jpg',
-  'assets/images/content1.jpg',
-  'assets/images/content1.jpg',
-  'assets/images/content1.jpg'
+List<dataModel> listDataModel = [
+  dataModel(image: "assets/images/content1.jpg", title: "Pasta",
+      subTitle: "Creamy Mushroom", rating: 4.7, duration: "10 min",
+      price: "Rp 36.000", type: "Main Course",
+      desc: ""),
+  dataModel(image: "assets/images/content1.jpg", title: "Gulai",
+      subTitle: "Ikan Patin", rating: 4.8, duration: "30 min",
+      price: "Rp 30.000", type: "Main Course",
+      desc: ""),
+  dataModel(image: "assets/images/content1.jpg", title: "Mie",
+      subTitle: "Bangka", rating: 4.9, duration: "10 min",
+      price: "Rp 36.000", type: "Main Course",
+      desc: ""),
+  dataModel(image: "assets/images/content1.jpg", title: "Ayam",
+      subTitle: "Betutu", rating: 5.0, duration: "90 min",
+      price: "Rp 52.000", type: "Main Course",
+      desc: ""),
+  dataModel(image: "assets/images/content1.jpg", title: "Ayam",
+      subTitle: "Taliwang", rating: 4.9, duration: "80 min",
+      price: "Rp 55.000", type: "Main Course",
+      desc: "Ayam Taliwang adalah makanan khas yang berasal dari Karang "
+          "Taliwang, Mataram, Nusa Tenggara Barat. Makanan ini berbahan "
+          "dasar daging ayam."),
+  dataModel(image: "assets/images/content1.jpg", title: "Soto",
+      subTitle: "Banjar", rating: 4.8, duration: "15 min",
+      price: "Rp 25.000", type: "Main Course",
+      desc: "Soto Banjar adalah soto ayam berempah yang lahir di tengah "
+          "masyarakat suku Banjar di Kalimantan Selatan. Bisa dibilang juga "
+          "bahkan hidangan ini adalah salah satu masakan terpopuler "
+          "dari Kalimantan. Berbahan dasar ayam kampung, soto ini memiliki "
+          "keunikan, yaitu bumbunya diperkaya dengan rempah-rempah biji pala, "
+          "cengkih, dan kayu manis. Ada pula yang menambahkan beberapa butir "
+          "kapulaga ke dalam air rebusan kuah soto yang semakin gurih berkat "
+          "Royco Kaldu Ayam. Selain berkuah bening, ada juga yang menambahkan "
+          "susu ke dalam kaldunya sehinga kuah soto nampak lebih keruh."),
+  dataModel(image: "assets/images/content1.jpg", title: "Soto",
+      subTitle: "Betawi", rating: 4.8, duration: "17 min",
+      price: "Rp 28.000", type: "Main Course",
+      desc: "Soto Betawi merupakan salah satu jenis soto khas Nusantara "
+          "yang paling digemari. Berkuah putih dan cukup kental, soto Betawi "
+          "ada yang terbuat dari santan kelapa atau susu."),
+  dataModel(image: "assets/images/content1.jpg", title: "Turkish Baklava",
+      subTitle: "with Turkish Tea", rating: 4.6, duration: "10 min",
+      price: "Rp 23.000", type: "Dessert",
+      desc: "sejenis makanan ringan di kawasan Turki dan daerah-daerah "
+          "tempat mantan kekuasaan Kesultanan Utsmaniyah. Makanan ini "
+          "terdiri dari kacang walnut atau pistache yang dicincang dan "
+          "diberi pemanis (gula atau madu) dan dibungkus adonan roti tipis"),
+  dataModel(image: "assets/images/content1.jpg", title: "Salad",
+      subTitle: "Buah, Yoghurt", rating: 4.8, duration: "5 min",
+      price: "Rp 28.000", type: "Appetizer",
+      desc: "Jika Anda sedang ingin memaksimalkan program diet, salad buah "
+          "yoghurt merupakan salah satu menu yang pas disantap sebagai "
+          "hidangan penutup Anda."),
+  dataModel(image: "assets/images/content1.jpg", title: "Gudeg",
+      subTitle: "Yogyakarta", rating: 5.0, duration: "30 min",
+      price: "Rp 40.000", type: "Main Course",
+      desc: "Gudeg merupakan masakan yang berbahan utama nangka muda atau "
+          "oleh warga lokal disebut gori. Dalam prosesnya, potongan daging "
+          "nangka ini direbus dengan gula merah dan santan dengan api kecil "
+          "selama beberapa jam. Percaya atau tidak, gudeg akan lebih nikmat "
+          "rasanya dimasak dengan menggunakan periuk tanah liat di atas "
+          "tungku. Gudeg Yogyakarta ini berjenis kering atau disajikan tanpa "
+          "kuah dan tampak lebih coklat, serta terasa lebih manis."),
 ];
 
 class MainScreen extends StatelessWidget {
@@ -30,6 +87,7 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -197,7 +255,7 @@ class MainScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                 crossAxisSpacing: 0.0,
                 mainAxisSpacing: 0.0,
-                children: _listItem.map((item) => Card(
+                children: listDataModel.map((data) => Card(
                   child: Container(
                     alignment: Alignment.center,// use aligment
                     decoration: BoxDecoration(
@@ -212,57 +270,57 @@ class MainScreen extends StatelessWidget {
                                 Radius.circular(5.0)
                             ),
                             child : Image.asset(
-                              item,
+                              data.image,
                               height: 85,
                               fit: BoxFit.fill,
                             ),
                           ),
                           const SizedBox(height: 3,),
-                          const Text('Test',
+                          Text(data.title,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 14.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const Text('Test Sub Title',
+                          Text(data.subTitle,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color : Colors.grey,
                               fontSize: 12.0,
                             ),
                           ),
                           const SizedBox(height: 3,),
-                          const Row(
+                          Row(
                             crossAxisAlignment : CrossAxisAlignment.center,
                             mainAxisAlignment : MainAxisAlignment.center,
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.star,
                                 color: Colors.orange,
                                 size: 15.0,
                               ),
                               Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 2.0),
-                                child : Text('5.0', style: TextStyle(fontSize: 12.0),),
+                                padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                                child : Text(data.rating.toString(), style: const TextStyle(fontSize: 12.0),),
                               ),
-                              Text('|'),
-                              SizedBox(width: 2.0,),
-                              Icon(
+                              const Text('|'),
+                              const SizedBox(width: 2.0,),
+                              const Icon(
                                 Icons.delivery_dining_sharp,
                                 color: Colors.orange,
                                 size: 15.0,
                               ),
                               Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 2.0),
-                                child : Text('5-10 min', style: TextStyle(fontSize: 12.0),),
+                                padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                                child : Text(data.duration, style: const TextStyle(fontSize: 12.0),),
                               ),
                             ],
                           ),
                           const SizedBox(height: 3,),
-                          const Text('Rp 10.000',
+                          Text(data.price,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 14.0,
                               fontWeight: FontWeight.bold,
                             ),
