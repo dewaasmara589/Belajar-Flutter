@@ -17,31 +17,44 @@ class MyApp extends StatelessWidget{
 }
 
 List<dataModel> listDataModel = [
-  dataModel(image: "assets/images/content1.jpg", title: "Pasta",
-      subTitle: "Creamy Mushroom", rating: 4.7, duration: "10 min",
-      price: "Rp 36.000", type: "Main Course",
-      desc: ""),
-  dataModel(image: "assets/images/content1.jpg", title: "Gulai",
-      subTitle: "Ikan Patin", rating: 4.8, duration: "30 min",
-      price: "Rp 30.000", type: "Main Course",
-      desc: ""),
-  dataModel(image: "assets/images/content1.jpg", title: "Mie",
-      subTitle: "Bangka", rating: 4.9, duration: "10 min",
-      price: "Rp 36.000", type: "Main Course",
-      desc: ""),
-  dataModel(image: "assets/images/content1.jpg", title: "Ayam",
-      subTitle: "Betutu", rating: 5.0, duration: "90 min",
-      price: "Rp 52.000", type: "Main Course",
-      desc: ""),
-  dataModel(image: "assets/images/content1.jpg", title: "Ayam",
-      subTitle: "Taliwang", rating: 4.9, duration: "80 min",
-      price: "Rp 55.000", type: "Main Course",
+  dataModel(id: 1, image: "assets/images/content2.jpg",
+      title: "French Croquette", subTitle: "Kroket", rating: 4.7,
+      duration: "10 min", price: "Rp 36.000", type: "Main Course",
+      desc: "French Croquette atau di Indonesia lebih dikenal dengan "
+          "sebutan kroket adalah makanan berbahan dasar kentang. "
+          "Selain kentang, di dalamnya dicampurkan juga daging lalu "
+          "dibentuk sedemikian rupa kemudian dibaluri tepung roti dan "
+          "digoreng. Makanan ringan yang populer pada masa penjajahan "
+          "Belanda ini biasanya dibungkus menggunakan kertas krep"),
+  dataModel(id: 2, image: "assets/images/content3.jpg",
+      title: "Gulai", subTitle: "Ikan Patin", rating: 4.8,
+      duration: "30 min", price: "Rp 30.000", type: "Main Course",
+      desc: "Seperti namanya, gulai yang satu ini berbahan dasar ikan patin "
+          "yang diberi bumbu-bumbu dan rempah kemudian dimasak. Tak hanya "
+          "lezat, makanan ini juga kaya akan gizi.Gulai ikan patin cocok "
+          "dijadikan pelengkap makan yang disajikan dengan taburan bawang "
+          "goreng dan nasi putih."),
+  dataModel(id: 3, image: "assets/images/content4.jpg",
+      title: "Mie", subTitle: "Bangka", rating: 4.9,
+      duration: "10 min", price: "Rp 36.000", type: "Main Course",
+      desc: "Mi Bangka atau dikenal juga dengan nama bakmi Bangka "
+          "merupakan hidangan tradisional dari Provinsi Bangka Belitung. "
+          "Kuliner ini biasanya ditambah dengan aneka topping seperti "
+          "bakso sapi, udang, irisan ayam, dan lainnya."),
+  dataModel(id: 4, image: "assets/images/content5.jpg",
+      title: "Ayam", subTitle: "Betutu", rating: 5.0,
+      duration: "90 min", price: "Rp 52.000", type: "Main Course",
+      desc: "Ayam betutu merupakan hidangan khas Bali, terbuat dari daging "
+          "ayam utuh dan dimasak dengan bumbu base genep."),
+  dataModel(id: 5, image: "assets/images/content6.jpg",
+      title: "Ayam", subTitle: "Taliwang", rating: 4.9,
+      duration: "80 min", price: "Rp 55.000", type: "Main Course",
       desc: "Ayam Taliwang adalah makanan khas yang berasal dari Karang "
           "Taliwang, Mataram, Nusa Tenggara Barat. Makanan ini berbahan "
           "dasar daging ayam."),
-  dataModel(image: "assets/images/content1.jpg", title: "Soto",
-      subTitle: "Banjar", rating: 4.8, duration: "15 min",
-      price: "Rp 25.000", type: "Main Course",
+  dataModel(id: 6, image: "assets/images/content7.jpg",
+      title: "Soto", subTitle: "Banjar", rating: 4.8,
+      duration: "15 min", price: "Rp 25.000", type: "Main Course",
       desc: "Soto Banjar adalah soto ayam berempah yang lahir di tengah "
           "masyarakat suku Banjar di Kalimantan Selatan. Bisa dibilang juga "
           "bahkan hidangan ini adalah salah satu masakan terpopuler "
@@ -51,28 +64,28 @@ List<dataModel> listDataModel = [
           "kapulaga ke dalam air rebusan kuah soto yang semakin gurih berkat "
           "Royco Kaldu Ayam. Selain berkuah bening, ada juga yang menambahkan "
           "susu ke dalam kaldunya sehinga kuah soto nampak lebih keruh."),
-  dataModel(image: "assets/images/content1.jpg", title: "Soto",
-      subTitle: "Betawi", rating: 4.8, duration: "17 min",
-      price: "Rp 28.000", type: "Main Course",
+  dataModel(id: 7, image: "assets/images/content8.jpg",
+      title: "Soto", subTitle: "Betawi", rating: 4.8,
+      duration: "17 min", price: "Rp 28.000", type: "Main Course",
       desc: "Soto Betawi merupakan salah satu jenis soto khas Nusantara "
           "yang paling digemari. Berkuah putih dan cukup kental, soto Betawi "
           "ada yang terbuat dari santan kelapa atau susu."),
-  dataModel(image: "assets/images/content1.jpg", title: "Turkish Baklava",
-      subTitle: "with Turkish Tea", rating: 4.6, duration: "10 min",
-      price: "Rp 23.000", type: "Dessert",
+  dataModel(id: 8, image: "assets/images/content9.jpg",
+      title: "Turkish Baklava", subTitle: "with Turkish Tea", rating: 4.6,
+      duration: "10 min", price: "Rp 23.000", type: "Dessert",
       desc: "sejenis makanan ringan di kawasan Turki dan daerah-daerah "
           "tempat mantan kekuasaan Kesultanan Utsmaniyah. Makanan ini "
           "terdiri dari kacang walnut atau pistache yang dicincang dan "
           "diberi pemanis (gula atau madu) dan dibungkus adonan roti tipis"),
-  dataModel(image: "assets/images/content1.jpg", title: "Salad",
-      subTitle: "Buah, Yoghurt", rating: 4.8, duration: "5 min",
-      price: "Rp 28.000", type: "Appetizer",
+  dataModel(id: 9, image: "assets/images/content10.jpg",
+      title: "Salad", subTitle: "Buah, Yoghurt", rating: 4.8,
+      duration: "5 min", price: "Rp 28.000", type: "Appetizer",
       desc: "Jika Anda sedang ingin memaksimalkan program diet, salad buah "
           "yoghurt merupakan salah satu menu yang pas disantap sebagai "
           "hidangan penutup Anda."),
-  dataModel(image: "assets/images/content1.jpg", title: "Gudeg",
-      subTitle: "Yogyakarta", rating: 5.0, duration: "30 min",
-      price: "Rp 40.000", type: "Main Course",
+  dataModel(id: 10, image: "assets/images/content11.jpg",
+      title: "Gudeg", subTitle: "Yogyakarta", rating: 5.0,
+      duration: "30 min", price: "Rp 40.000", type: "Main Course",
       desc: "Gudeg merupakan masakan yang berbahan utama nangka muda atau "
           "oleh warga lokal disebut gori. Dalam prosesnya, potongan daging "
           "nangka ini direbus dengan gula merah dan santan dengan api kecil "
@@ -250,86 +263,91 @@ class MainScreen extends StatelessWidget {
           const SizedBox(height: 5.0,),
 
           Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-                crossAxisSpacing: 0.0,
-                mainAxisSpacing: 0.0,
-                children: listDataModel.map((data) => Card(
-                  child: Container(
-                    alignment: Alignment.center,// use aligment
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      // border: Border.all(color: Colors.black),
-                    ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          ClipRRect(
-                            borderRadius: const BorderRadius.all(
-                                Radius.circular(5.0)
-                            ),
-                            child : Image.asset(
-                              data.image,
-                              height: 85,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          const SizedBox(height: 3,),
-                          Text(data.title,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(data.subTitle,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              color : Colors.grey,
-                              fontSize: 12.0,
-                            ),
-                          ),
-                          const SizedBox(height: 3,),
-                          Row(
-                            crossAxisAlignment : CrossAxisAlignment.center,
-                            mainAxisAlignment : MainAxisAlignment.center,
-                            children: [
-                              const Icon(
-                                Icons.star,
-                                color: Colors.orange,
-                                size: 15.0,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                                child : Text(data.rating.toString(), style: const TextStyle(fontSize: 12.0),),
-                              ),
-                              const Text('|'),
-                              const SizedBox(width: 2.0,),
-                              const Icon(
-                                Icons.delivery_dining_sharp,
-                                color: Colors.orange,
-                                size: 15.0,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                                child : Text(data.duration, style: const TextStyle(fontSize: 12.0),),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 3,),
-                          Text(data.price,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
+            child: GridView.count(
+              crossAxisCount: 2,
+              padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+              crossAxisSpacing: 0.0,
+              mainAxisSpacing: 0.0,
+              children: listDataModel.map((data) => Card(
+                child: Container(
+                  alignment: Alignment.center,// use aligment
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    // border: Border.all(color: Colors.black),
                   ),
-                ),).toList(),
-              ),
+                  child: InkWell(
+                    onTap: (){
+                      print('Clicked : ' + data.id.toString());
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        ClipRRect(
+                          borderRadius: const BorderRadius.all(
+                              Radius.circular(5.0)
+                          ),
+                          child : Image.asset(
+                            data.image,
+                            height: 85,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        const SizedBox(height: 3,),
+                        Text(data.title,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(data.subTitle,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color : Colors.grey,
+                            fontSize: 12.0,
+                          ),
+                        ),
+                        const SizedBox(height: 3,),
+                        Row(
+                          crossAxisAlignment : CrossAxisAlignment.center,
+                          mainAxisAlignment : MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.star,
+                              color: Colors.orange,
+                              size: 15.0,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                              child : Text(data.rating.toString(), style: const TextStyle(fontSize: 12.0),),
+                            ),
+                            const Text('|'),
+                            const SizedBox(width: 2.0,),
+                            const Icon(
+                              Icons.delivery_dining_sharp,
+                              color: Colors.orange,
+                              size: 15.0,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                              child : Text(data.duration, style: const TextStyle(fontSize: 12.0),),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 3,),
+                        Text(data.price,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),).toList(),
+            ),
           ),
 
         ],

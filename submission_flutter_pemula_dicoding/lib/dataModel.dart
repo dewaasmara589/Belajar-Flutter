@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class dataModel{
+  var id;
   var image = "";
   var title = "";
   var subTitle = "";
@@ -11,6 +12,7 @@ class dataModel{
   var desc = "";
 
   dataModel({
+    required this.id,
     required this.image,
     required this.title,
     required this.subTitle,
