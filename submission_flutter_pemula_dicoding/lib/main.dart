@@ -100,7 +100,6 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -239,26 +238,11 @@ class MainScreen extends StatelessWidget {
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget> [
-              Text(
-                "Today",
-                style: TextStyle(
-                  color: Colors.grey,
-                ),
-              ),
-              Text("Popular"),
-              Text(
-                "Best Seller",
-                style: TextStyle(
-                color: Colors.grey,
-                ),
-              ),
-              Text(
-                "Vegetarian",
-                style: TextStyle(
-                color: Colors.grey,
-                ),
-              ),
-            ],
+              MenuText(titleMenu: 'All'),
+              MenuText(titleMenu: 'Appetizer'),
+              MenuText(titleMenu: 'Main Course'),
+              MenuText(titleMenu: 'Dessert'),
+            ]
           ),
           const SizedBox(height: 5.0,),
 
@@ -351,6 +335,37 @@ class MainScreen extends StatelessWidget {
           ),
 
         ],
+      ),
+    );
+  }
+}
+
+class MenuText extends StatefulWidget {
+  final String titleMenu;
+
+  const MenuText({Key ? key, required this.titleMenu}) : super(key: key);
+
+  @override
+  State<MenuText> createState() => _MenuText();
+}
+
+class _MenuText extends State<MenuText> {
+  bool menuTextIsPressed = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () {
+        setState(() {
+          menuTextIsPressed = !menuTextIsPressed;
+        });
+        },
+      style: TextButton.styleFrom(
+        primary: menuTextIsPressed ? Colors.black : Colors.grey,
+      ),
+      child: Text(
+        widget.titleMenu,
+        style: const TextStyle(fontSize: 14.0),
       ),
     );
   }
