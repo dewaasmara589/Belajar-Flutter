@@ -235,15 +235,7 @@ class MainScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height : 10.0),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget> [
-              MenuText(titleMenu: 'All'),
-              MenuText(titleMenu: 'Appetizer'),
-              MenuText(titleMenu: 'Main Course'),
-              MenuText(titleMenu: 'Dessert'),
-            ]
-          ),
+          const MenuText(titleMenu: ['All', 'Appetizer', 'Main Course', 'Dessert']),
           const SizedBox(height: 5.0,),
 
           Expanded(
@@ -341,7 +333,7 @@ class MainScreen extends StatelessWidget {
 }
 
 class MenuText extends StatefulWidget {
-  final String titleMenu;
+  final List<String> titleMenu;
 
   const MenuText({Key ? key, required this.titleMenu}) : super(key: key);
 
@@ -354,19 +346,24 @@ class _MenuText extends State<MenuText> {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () {
-        setState(() {
-          menuTextIsPressed = !menuTextIsPressed;
-        });
-        },
-      style: TextButton.styleFrom(
-        primary: menuTextIsPressed ? Colors.black : Colors.grey,
-      ),
-      child: Text(
-        widget.titleMenu,
-        style: const TextStyle(fontSize: 14.0),
-      ),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      height: 40.0,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: widget.titleMenu.length, itemBuilder: (context, index) {
+        return Container(
+          width: 85.0,
+          child: Card(
+            color: Colors.brown,
+            child: Center(
+                child: Text(widget.titleMenu[index].toString(),
+                  style: const TextStyle(color: Colors.white, fontSize: 12.0),
+                )
+            ),
+          ),
+        );
+      }),
     );
   }
 }
