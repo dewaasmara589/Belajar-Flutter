@@ -342,28 +342,69 @@ class MenuText extends StatefulWidget {
 }
 
 class _MenuText extends State<MenuText> {
-  bool menuTextIsPressed = false;
+  Map<int, bool> menuTextIsPressed = {
+    0 : true,
+    1 : false,
+    2 : false,
+    3 : false,
+  };
+
+  var getKey = 0;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
-      height: 40.0,
+      height: 30.0,
       child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: widget.titleMenu.length, itemBuilder: (context, index) {
-        return Container(
-          width: 85.0,
-          child: Card(
-            color: Colors.brown,
-            child: Center(
-                child: Text(widget.titleMenu[index].toString(),
-                  style: const TextStyle(color: Colors.white, fontSize: 12.0),
-                )
-            ),
-          ),
-        );
-      }),
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        itemCount: widget.titleMenu.length,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget> [
+                  Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 2, color: getKey == index? Colors.brown : Colors.transparent,),
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                      ),
+                      child : Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
+                          child: Text(
+                            widget.titleMenu[index].toString(),
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14.0,
+                            ),
+                          )
+                      )
+                  )
+                ],
+              ),
+            onTap : () {
+              menuTextIsPressed.updateAll((key, value){
+                if(key == index){
+                  return true;
+                }else{
+                  return false;
+                }
+              });
+
+
+              print('List = ' + menuTextIsPressed.toString());
+              var trueKey = menuTextIsPressed.keys.firstWhere((k) => menuTextIsPressed[k] == true);
+
+              setState(() {
+                getKey = trueKey;
+              });
+
+              print('Tes = ' + trueKey.toString());
+            }
+          );
+        }
+      ),
     );
   }
 }
