@@ -7,7 +7,7 @@ class dataModel{
   var subTitle = "";
   var rating;
   var duration = "";
-  var price = "";
+  var price;
   var type = "";
   var desc = "";
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "package:intl/intl.dart";
 import 'package:submission_flutter_pemula_dicoding/data.dart';
 import 'package:submission_flutter_pemula_dicoding/dataModel.dart';
 import 'package:submission_flutter_pemula_dicoding/orderNow.dart';
@@ -193,6 +194,12 @@ class _MenuText extends State<MenuText> {
 
   late List<dataModel> newDataList = [];
 
+  NumberFormat currencyFormatter = NumberFormat.currency(
+    locale: 'id',
+    symbol: 'Rp ',
+    decimalDigits: 0,
+  );
+
   @override
   Widget build(BuildContext context) {
     if (selectedValue == 'All'){
@@ -355,7 +362,7 @@ class _MenuText extends State<MenuText> {
                         ],
                       ),
                       const SizedBox(height: 3,),
-                      Text(data.price,
+                      Text(currencyFormatter.format(data.price),
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 14.0,
