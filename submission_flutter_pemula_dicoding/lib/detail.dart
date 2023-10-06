@@ -36,6 +36,12 @@ class detail extends StatelessWidget{
           centerTitle: true,
           backgroundColor: Colors.brown,
           title: const Text('WM Spesial Wuenak'),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_sharp),
+          ),
         ),
         body: SafeArea(
           child: Column(
@@ -257,13 +263,16 @@ class _TotalPesanan extends State<TotalPesanan> {
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           textStyle: const TextStyle(fontSize: 14),
                         ),
-                        onPressed: () {},
                         child: const Text(
                           'Add to Cart',
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 16.0,
-                          ),),
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context, rootNavigator: true).pop(context);
+                        },
                       ),
                     ],
                   ),

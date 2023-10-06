@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import "package:intl/intl.dart";
 import 'package:submission_flutter_pemula_dicoding/data.dart';
 import 'package:submission_flutter_pemula_dicoding/dataModel.dart';
+import 'package:submission_flutter_pemula_dicoding/myOrder.dart';
 import 'package:submission_flutter_pemula_dicoding/orderNow.dart';
 import 'package:submission_flutter_pemula_dicoding/detail.dart';
 
@@ -27,9 +28,31 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         backgroundColor: Colors.brown,
         title: const Text('WM Spesial Wuenak'),
+        actions: [
+          Padding(
+              padding: EdgeInsets.fromLTRB(0, 5, 10, 0),
+              child: Visibility(
+                child: Badge(
+                  alignment: AlignmentDirectional.topEnd,
+                  label: Text('1'),
+                  child: Container(
+                    padding: const EdgeInsets.all(0.0),
+                    width: 30.0,
+                    child: IconButton(
+                        padding: EdgeInsets.zero,
+                        icon: const Icon(Icons.shopping_cart, color: Colors.orange,),
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => myOrder()));
+                        }
+                    ),
+                  ),
+                ),
+                // visible: jumlahOrder > 0 ? true : false,
+              )
+          )
+        ],
       ),
       body: Column(
         children: <Widget> [

@@ -20,9 +20,26 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context, rootNavigator: true).pop(context);
+          },
+          icon: Icon(Icons.arrow_back_sharp),
+        ),
         centerTitle: true,
         backgroundColor: Colors.orange,
         title: const Text('Order Now'),
+      ),
+      body: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.all(10.0),
+            height: 35.0,
+            decoration: BoxDecoration(
+              color: Colors.orange,
+            ),
+          )
+        ],
       ),
     );
   }
