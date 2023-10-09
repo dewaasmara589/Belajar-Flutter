@@ -124,8 +124,7 @@ class detail extends StatelessWidget{
                 ),
               ),
               const Spacer(flex: 2,),
-              TotalPesanan(jumlah: 1, price: priceSelected,)
-
+              TotalPesanan(getId: idSelectedListMakanan,jumlah: 1, price: priceSelected,)
             ],
           ),
         ),
@@ -135,14 +134,19 @@ class detail extends StatelessWidget{
 }
 
 class TotalPesanan extends StatefulWidget{
+  late int getId;
   late int jumlah;
   late int price;
 
-  TotalPesanan({Key ? key, required this.jumlah, required this.price}) : super(key: key);
+  TotalPesanan({Key ? key, required this.jumlah, required this.price, required this.getId}) : super(key: key);
 
   @override
   State<TotalPesanan> createState() => _TotalPesanan();
 }
+
+final mapDataDetail = <int, List<int>>{};
+void addValueToMap<K, V>(Map<K, List<V>> map, K key, V value) =>
+    map.update(key, (list) => list..add(value), ifAbsent: () => [value]);
 
 late int nextPrice = 0;
 class _TotalPesanan extends State<TotalPesanan> {
@@ -274,7 +278,8 @@ class _TotalPesanan extends State<TotalPesanan> {
                         onPressed: () {
                           Navigator.of(context, rootNavigator: true).pop(context);
                           
-                          streamController.add(1);
+                          addValueToMap(mapDataDetail, widget.getId, widget.jumlah);
+                          streamController.add(mapDataDetail.length);
                         },
                       ),
                     ],
