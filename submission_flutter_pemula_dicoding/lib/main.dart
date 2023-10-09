@@ -201,7 +201,7 @@ class _Cart extends State<Cart> {
 
   void mySetState(int index){
     setState(() {
-      jumlah = index;
+      jumlah += index;
     });
   }
 
@@ -357,7 +357,7 @@ class _MenuText extends State<MenuText> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => detail(
-                            idSelectedListMakanan: data.id,
+                            idSelectedListMakanan: data.id.toString(),
                             nameSelectedListMakanan: data.title.toString(),
                         )),
                     );

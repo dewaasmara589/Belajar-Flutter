@@ -76,6 +76,17 @@ class _Content extends State<Content> {
       decimalDigits: 0,
     );
 
+    late int totalHargaSemua = 0;
+    for (int x = 0; x < adjustData.length; x++){
+      late int totalHarga = adjustData[x].price * getTotal[x];
+      totalHargaSemua += totalHarga;
+    }
+
+    var ppn = totalHargaSemua / 10;
+    var layanan = 2000;
+
+    var totalPembayaran = totalHargaSemua + ppn + layanan;
+
     return Column(
       children: [
         Center(
@@ -140,7 +151,7 @@ class _Content extends State<Content> {
                                           Row(
                                             mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
-                                              const Text('Total : ',
+                                              const Text('Harga : ',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   fontSize: 16.0,
@@ -157,7 +168,7 @@ class _Content extends State<Content> {
                                             ],
                                           ),
                                           SizedBox(height: 10,),
-                                          Text(currencyFormatter.format(adjustData[index].price*getTotal[index]).toString(),
+                                          Text(currencyFormatter.format(adjustData[index].price * getTotal[index]).toString(),
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
                                               fontSize: 18.0,
@@ -172,6 +183,159 @@ class _Content extends State<Content> {
                             ),
                           );
                         }
+                    ),
+                  ),
+                  Container(
+                    height: 1.0,
+                    margin: EdgeInsets.symmetric(vertical: 5.0),
+                    color: Colors.black,
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(width: 10,),
+                      const Expanded(
+                        child: Text('Total',
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          )
+                        )
+                      ),
+                      Expanded(
+                        child: Text(currencyFormatter.format(totalHargaSemua).toString(),
+                            textAlign: TextAlign.end,
+                            style: const TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                            )
+                        )
+                      ),
+                      SizedBox(width: 10,),
+                    ],
+                  ),
+                  SizedBox(height: 5.0,),
+                  Row(
+                    children: [
+                      SizedBox(width: 10,),
+                      const Expanded(
+                          child: Text('PPN (10%)',
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              )
+                          )
+                      ),
+                      Expanded(
+                          child: Text(currencyFormatter.format(ppn).toString(),
+                              textAlign: TextAlign.end,
+                              style: const TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              )
+                          )
+                      ),
+                      SizedBox(width: 10,),
+                    ],
+                  ),
+                  SizedBox(height: 5.0,),
+                  Row(
+                    children: [
+                      SizedBox(width: 10,),
+                      const Expanded(
+                          child: Text('Biaya Layanan',
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              )
+                          )
+                      ),
+                      Expanded(
+                          child: Text(currencyFormatter.format(layanan).toString(),
+                              textAlign: TextAlign.end,
+                              style: const TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              )
+                          )
+                      ),
+                      SizedBox(width: 10,),
+                    ],
+                  ),
+                  SizedBox(height: 5.0,),
+                  Row(
+                    children: [
+                      SizedBox(width: 10,),
+                      const Expanded(
+                          child: Text('Total Pembayaran',
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              )
+                          )
+                      ),
+                      Expanded(
+                          child: Text(currencyFormatter.format(totalPembayaran).toString(),
+                              textAlign: TextAlign.end,
+                              style: const TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              )
+                          )
+                      ),
+                      SizedBox(width: 10,),
+                    ],
+                  ),
+                  SizedBox(height: 15.0,),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 10.0),
+                    width: double.infinity,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Stack(
+                        children: <Widget>[
+                          Positioned.fill(
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: <Color>[
+                                    Color(0xFF78921d),
+                                    Color(0xFFCBD394),
+                                    Color(0xFF6F8817),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              foregroundColor: Colors.black,
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 10.0,
+                              ),
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              textStyle: const TextStyle(fontSize: 14),
+                            ),
+                            onPressed: () {
+                              mapDataDetail.clear();
+
+                              Navigator.of(context, rootNavigator: true).pop(context);
+                            },
+                            child: const Center(
+                              child: Text(
+                                'Bayar',
+                                style: TextStyle(
+                                  fontSize: 22.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            )
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 ]
