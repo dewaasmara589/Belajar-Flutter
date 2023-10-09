@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import "package:intl/intl.dart";
 import 'package:submission_flutter_pemula_dicoding/data.dart';
+import 'package:submission_flutter_pemula_dicoding/main.dart';
 
 void main() => runApp(detail(idSelectedListMakanan: null, nameSelectedListMakanan: null));
 
@@ -272,6 +273,8 @@ class _TotalPesanan extends State<TotalPesanan> {
                         ),
                         onPressed: () {
                           Navigator.of(context, rootNavigator: true).pop(context);
+                          
+                          streamController.add(1);
                         },
                       ),
                     ],

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import "package:intl/intl.dart";
+import 'dart:async';
 import 'package:submission_flutter_pemula_dicoding/data.dart';
 import 'package:submission_flutter_pemula_dicoding/dataModel.dart';
 import 'package:submission_flutter_pemula_dicoding/myOrder.dart';
 import 'package:submission_flutter_pemula_dicoding/orderNow.dart';
 import 'package:submission_flutter_pemula_dicoding/detail.dart';
 
-void main() => runApp(const MyApp());
+StreamController<int> streamController = StreamController<int>();
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget{
   const MyApp({super.key});
@@ -31,27 +34,7 @@ class MainScreen extends StatelessWidget {
         backgroundColor: Colors.brown,
         title: const Text('WM Spesial Wuenak'),
         actions: [
-          Padding(
-              padding: EdgeInsets.fromLTRB(0, 5, 10, 0),
-              child: Visibility(
-                child: Badge(
-                  alignment: AlignmentDirectional.topEnd,
-                  label: Text('1'),
-                  child: Container(
-                    padding: const EdgeInsets.all(0.0),
-                    width: 30.0,
-                    child: IconButton(
-                        padding: EdgeInsets.zero,
-                        icon: const Icon(Icons.shopping_cart, color: Colors.orange,),
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => myOrder()));
-                        }
-                    ),
-                  ),
-                ),
-                // visible: jumlahOrder > 0 ? true : false,
-              )
-          )
+          Cart(streamController.stream),
         ],
       ),
       body: Column(
@@ -194,6 +177,60 @@ class MainScreen extends StatelessWidget {
     );
   }
 }
+
+
+class Cart extends StatefulWidget {
+  Cart(this.stream);
+  final Stream<int> stream;
+
+  @override
+  _Cart createState() => _Cart();
+}
+
+class _Cart extends State<Cart> {
+  late int jumlah = 0;
+
+  @override
+  void initState() {
+    super.initState();
+
+    widget.stream.listen((index) {
+      mySetState(index);
+    });
+  }
+
+  void mySetState(int index){
+    setState(() {
+      jumlah += index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: EdgeInsets.fromLTRB(0, 5, 10, 0),
+        child: Visibility(
+          child: Badge(
+            alignment: AlignmentDirectional.topEnd,
+            label: Text(jumlah.toString()),
+            child: Container(
+              padding: const EdgeInsets.all(0.0),
+              width: 30.0,
+              child: IconButton(
+                  padding: EdgeInsets.zero,
+                  icon: const Icon(Icons.shopping_cart, color: Colors.orange,),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => myOrder()));
+                  }
+              ),
+            ),
+          ),
+          // visible: jumlahOrder > 0 ? true : false,
+        )
+    );
+  }
+}
+
 
 class MenuText extends StatefulWidget {
   final List<String> titleMenu;
