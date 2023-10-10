@@ -201,14 +201,14 @@ class _Cart extends State<Cart> {
 
   void mySetState(int index){
     setState(() {
-      jumlah += index;
+      jumlah = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.fromLTRB(0, 5, 10, 0),
+        padding: const EdgeInsets.fromLTRB(0, 5, 10, 0),
         child: Visibility(
           child: Badge(
             alignment: AlignmentDirectional.topEnd,
@@ -357,7 +357,7 @@ class _MenuText extends State<MenuText> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => detail(
-                            idSelectedListMakanan: data.id.toString(),
+                            idSelectedListMakanan: data.id,
                             nameSelectedListMakanan: data.title.toString(),
                         )),
                     );

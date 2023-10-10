@@ -3,10 +3,13 @@ import "package:intl/intl.dart";
 import 'package:submission_flutter_pemula_dicoding/data.dart';
 import 'package:submission_flutter_pemula_dicoding/dataModel.dart';
 import 'package:submission_flutter_pemula_dicoding/detail.dart';
+import 'package:submission_flutter_pemula_dicoding/main.dart';
 
-void main() => runApp(myOrder());
+void main() => runApp(const myOrder());
 
 class myOrder extends StatelessWidget{
+  const myOrder({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,14 +38,45 @@ class MainScreen extends StatelessWidget {
         title: const Text('WM Spesial Wuenak'),
       ),
       body: SafeArea(
-        child: Content(),
+        child: Column(
+          children: [
+            SizedBox(height: 10.0,),
+            const Center(
+              child: Text(
+                "My Order",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24.0,
+                  color: Colors.brown,
+                ),
+              ),
+            ),
+            mapDataDetail.isEmpty ?
+            const Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "~ Belum ada Pesanan ~",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.0,
+                        color: Colors.grey,
+                      )
+                    )
+                  ],
+                )
+            )
+                : const Content()
+          ]
+        ),
       )
     );
   }
 }
 
 class Content extends StatefulWidget{
-  Content();
+  const Content({super.key});
 
   @override
   _Content createState() => _Content();
@@ -94,16 +128,8 @@ class _Content extends State<Content> {
             margin: const EdgeInsets.symmetric(vertical: 10.0),
             child : Column (
                 children: [
-                  const Text(
-                    "My Order",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24.0,
-                      color: Colors.brown,
-                    ),
-                  ),
                   const SizedBox(height: 5.0,),
-                  Container(
+                  SizedBox(
                     height: 450.0,
                     child: ListView.builder(
                         scrollDirection: Axis.vertical,
@@ -112,7 +138,7 @@ class _Content extends State<Content> {
                         itemBuilder: (BuildContext context, int index) {
                           return Container(
                             height: 120,
-                            margin: EdgeInsets.symmetric(vertical: 5,horizontal: 10),
+                            margin: const EdgeInsets.symmetric(vertical: 5,horizontal: 10),
                             child: Row(
                               children: [
                                 ClipRRect(
@@ -130,7 +156,7 @@ class _Content extends State<Content> {
                                 ),
                                 Expanded(
                                     child: Container(
-                                      padding : EdgeInsets.symmetric(vertical: 10.0),
+                                      padding : const EdgeInsets.symmetric(vertical: 10.0),
                                       child: Column(
                                         children: [
                                           Text(adjustData[index].title,
@@ -147,7 +173,7 @@ class _Content extends State<Content> {
                                               fontSize: 12.0,
                                             ),
                                           ),
-                                          SizedBox(height: 10,),
+                                          const SizedBox(height: 10,),
                                           Row(
                                             mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
@@ -167,7 +193,7 @@ class _Content extends State<Content> {
                                               ),
                                             ],
                                           ),
-                                          SizedBox(height: 10,),
+                                          const SizedBox(height: 10,),
                                           Text(currencyFormatter.format(adjustData[index].price * getTotal[index]).toString(),
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
@@ -187,12 +213,12 @@ class _Content extends State<Content> {
                   ),
                   Container(
                     height: 1.0,
-                    margin: EdgeInsets.symmetric(vertical: 5.0),
+                    margin: const EdgeInsets.symmetric(vertical: 5.0),
                     color: Colors.black,
                   ),
                   Row(
                     children: [
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                       const Expanded(
                         child: Text('Total',
                           textAlign: TextAlign.start,
@@ -211,13 +237,13 @@ class _Content extends State<Content> {
                             )
                         )
                       ),
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                     ],
                   ),
-                  SizedBox(height: 5.0,),
+                  const SizedBox(height: 5.0,),
                   Row(
                     children: [
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                       const Expanded(
                           child: Text('PPN (10%)',
                               textAlign: TextAlign.start,
@@ -236,13 +262,13 @@ class _Content extends State<Content> {
                               )
                           )
                       ),
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                     ],
                   ),
-                  SizedBox(height: 5.0,),
+                  const SizedBox(height: 5.0,),
                   Row(
                     children: [
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                       const Expanded(
                           child: Text('Biaya Layanan',
                               textAlign: TextAlign.start,
@@ -261,13 +287,13 @@ class _Content extends State<Content> {
                               )
                           )
                       ),
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                     ],
                   ),
-                  SizedBox(height: 5.0,),
+                  const SizedBox(height: 5.0,),
                   Row(
                     children: [
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                       const Expanded(
                           child: Text('Total Pembayaran',
                               textAlign: TextAlign.start,
@@ -286,12 +312,12 @@ class _Content extends State<Content> {
                               )
                           )
                       ),
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                     ],
                   ),
-                  SizedBox(height: 15.0,),
+                  const SizedBox(height: 15.0,),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10.0),
+                    margin: const EdgeInsets.symmetric(horizontal: 10.0),
                     width: double.infinity,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(15),
@@ -320,7 +346,10 @@ class _Content extends State<Content> {
                               textStyle: const TextStyle(fontSize: 14),
                             ),
                             onPressed: () {
-                              mapDataDetail.clear();
+                              setState(() {
+                                mapDataDetail.clear();
+                                streamController.add(mapDataDetail.length);
+                              });
 
                               Navigator.of(context, rootNavigator: true).pop(context);
                             },

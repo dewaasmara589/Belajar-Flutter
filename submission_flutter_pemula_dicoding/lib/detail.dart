@@ -124,7 +124,7 @@ class detail extends StatelessWidget{
                 ),
               ),
               const Spacer(flex: 2,),
-              TotalPesanan(getId: idSelectedListMakanan,jumlah: 1, price: priceSelected,)
+              TotalPesanan(getId: idSelectedListMakanan, jumlah: 1, price: priceSelected,)
             ],
           ),
         ),
@@ -139,6 +139,8 @@ class TotalPesanan extends StatefulWidget{
   late int price;
 
   TotalPesanan({Key ? key, required this.jumlah, required this.price, required this.getId}) : super(key: key);
+
+  late int jumlahItem = 1;
 
   @override
   State<TotalPesanan> createState() => _TotalPesanan();
@@ -173,9 +175,9 @@ class _TotalPesanan extends State<TotalPesanan> {
                         splashColor: Colors.yellow,
                         onTap: () {
                           setState(() {
-                            if (widget.jumlah != 1) {
-                              widget.jumlah--;
-                              nextPrice = widget.price * widget.jumlah;
+                            if (widget.jumlahItem != 1) {
+                              widget.jumlahItem--;
+                              nextPrice = widget.price * widget.jumlahItem;
                             }
                           });
                         },
@@ -195,7 +197,7 @@ class _TotalPesanan extends State<TotalPesanan> {
               ),
               const SizedBox(width: 12,),
               Text(
-                widget.jumlah.toString(),
+                widget.jumlahItem.toString(),
                 style: const TextStyle(
                   fontSize: 22.0,
                   fontWeight: FontWeight.w400,
@@ -211,8 +213,8 @@ class _TotalPesanan extends State<TotalPesanan> {
                         splashColor: Colors.yellow,
                         onTap: () {
                           setState(() {
-                            widget.jumlah++;
-                            nextPrice = widget.price * widget.jumlah;
+                            widget.jumlahItem++;
+                            nextPrice = widget.price * widget.jumlahItem;
                           });
                         },
                         child: const Center(
@@ -239,7 +241,7 @@ class _TotalPesanan extends State<TotalPesanan> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  widget.jumlah == 1 ?
+                  widget.jumlahItem == 1 ?
                   currencyFormatter.format(widget.price).toString() :
                   currencyFormatter.format(nextPrice).toString(),
                   style: const TextStyle(
@@ -278,7 +280,7 @@ class _TotalPesanan extends State<TotalPesanan> {
                         onPressed: () {
                           Navigator.of(context, rootNavigator: true).pop(context);
                           
-                          addValueToMap(mapDataDetail, widget.getId, widget.jumlah);
+                          addValueToMap(mapDataDetail, widget.getId, widget.jumlahItem);
                           streamController.add(mapDataDetail.length);
                         },
                       ),
