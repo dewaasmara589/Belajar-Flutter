@@ -37,143 +37,145 @@ class MainScreen extends StatelessWidget {
           Cart(streamController.stream),
         ],
       ),
-      body: Column(
-        children: <Widget> [
-          Container(
-            height: 200.0,
-            margin: const EdgeInsets.all(10.0),
-            decoration: const BoxDecoration(
-              color: Colors.grey,
-            ),
-            child: Row(
-              children: <Widget>[
-                Flexible(
-                  flex: 1,
-                  fit: FlexFit.tight,
-                  child: Container(
-                    alignment: Alignment.center,
-                    height: 120,
-                    child: Column(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.only(
-                            bottom: 1, // Space between underline and text
-                          ),
-                          decoration: const BoxDecoration(
-                              border: Border(bottom: BorderSide(
-                                color: Colors.black,
-                                width: 1.0, // Underline thickness
-                              ))
-                          ),
-                          child: const Text(
-                            "Menerima Pesanan",
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget> [
+            Container(
+              height: 200.0,
+              margin: const EdgeInsets.all(10.0),
+              decoration: const BoxDecoration(
+                color: Colors.grey,
+              ),
+              child: Row(
+                children: <Widget>[
+                  Flexible(
+                    flex: 1,
+                    fit: FlexFit.tight,
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 120,
+                      child: Column(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.only(
+                              bottom: 1, // Space between underline and text
+                            ),
+                            decoration: const BoxDecoration(
+                                border: Border(bottom: BorderSide(
+                                  color: Colors.black,
+                                  width: 1.0, // Underline thickness
+                                ))
+                            ),
+                            child: const Text(
+                              "Menerima Pesanan",
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(height: 10.0,),
-                        const Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children : [
-                              Icon(
-                                Icons.add_call,
-                                size: 14.0,
-                              ),
-                              SizedBox(width: 5.0,),
-                              Text(
-                                "081234567898",
-                                style: TextStyle(fontSize: 12.0),
-                              ),
-                            ]
-                        ),
-                        const SizedBox(height: 5.0,),
-                        const Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children : [
-                              Icon(
-                                Icons.email,
-                                size: 14.0,
-                              ),
-                              SizedBox(width: 5.0,),
-                              Text(
-                                "spesialwuenak@gmail.com",
-                                style: TextStyle(fontSize: 12.0),
-                              ),
-                            ]
-                        ),
-                        const SizedBox(height: 15.0,),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(15),
-                          child: Stack(
-                            children: <Widget>[
-                              Positioned.fill(
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                    gradient: LinearGradient(
-                                      colors: <Color>[
-                                        Color(0xFFFF8B17),
-                                        Color(0xFFFF9E3D),
-                                        Color(0xFFF7AE65),
-                                      ],
+                          const SizedBox(height: 10.0,),
+                          const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children : [
+                                Icon(
+                                  Icons.add_call,
+                                  size: 14.0,
+                                ),
+                                SizedBox(width: 5.0,),
+                                Text(
+                                  "081234567898",
+                                  style: TextStyle(fontSize: 12.0),
+                                ),
+                              ]
+                          ),
+                          const SizedBox(height: 5.0,),
+                          const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children : [
+                                Icon(
+                                  Icons.email,
+                                  size: 14.0,
+                                ),
+                                SizedBox(width: 5.0,),
+                                Text(
+                                  "spesialwuenak@gmail.com",
+                                  style: TextStyle(fontSize: 12.0),
+                                ),
+                              ]
+                          ),
+                          const SizedBox(height: 15.0,),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: Stack(
+                              children: <Widget>[
+                                Positioned.fill(
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: <Color>[
+                                          Color(0xFFFF8B17),
+                                          Color(0xFFFF9E3D),
+                                          Color(0xFFF7AE65),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              TextButton(
-                                style: TextButton.styleFrom(
-                                  foregroundColor: Colors.white,
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0,
-                                    vertical: 5.0,
+                                TextButton(
+                                  style: TextButton.styleFrom(
+                                    foregroundColor: Colors.white,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0,
+                                      vertical: 5.0,
+                                    ),
+                                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                    textStyle: const TextStyle(fontSize: 14),
                                   ),
-                                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                  textStyle: const TextStyle(fontSize: 14),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => orderNow()),
+                                    );
+                                  },
+                                  child: const Text('Order Now'),
                                 ),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => orderNow()),
-                                  );
-                                },
-                                child: const Text('Order Now'),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const Flexible(
-                  flex: 1,
-                  fit: FlexFit.tight,
-                  child: Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                      child: Image(
-                        image: AssetImage('assets/images/content1.jpg'),
-                        alignment: Alignment.center,
+                        ],
                       ),
                     ),
                   ),
-                ),
-              ],
+                  const Flexible(
+                    flex: 1,
+                    fit: FlexFit.tight,
+                    child: Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                        child: Image(
+                          image: AssetImage('assets/images/content1.jpg'),
+                          alignment: Alignment.center,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          const Text(
-            "Categories",
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
+            const Text(
+              "Categories",
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-          const SizedBox(height : 10.0),
-          const MenuText(titleMenu: ['All', 'Appetizer', 'Main Course', 'Dessert']),
-        ],
-      ),
+            const SizedBox(height : 10.0),
+            const MenuText(titleMenu: ['All', 'Appetizer', 'Main Course', 'Dessert']),
+          ],
+        ),
+      )
     );
   }
 }
@@ -266,6 +268,9 @@ class _MenuText extends State<MenuText> {
       newDataList.clear();
       newDataList = List.from(listDataModel);
     }
+
+    Size screenSize = MediaQuery.of(context).size;
+
     return Column(
       children: [
         Container(
@@ -340,7 +345,7 @@ class _MenuText extends State<MenuText> {
         Container(
           height: 398.0,
           child: GridView.count(
-            crossAxisCount: 2,
+            crossAxisCount: screenSize.width > 700 ? 4 : 2,
             padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
             crossAxisSpacing: 0.0,
             mainAxisSpacing: 0.0,
@@ -365,68 +370,78 @@ class _MenuText extends State<MenuText> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      ClipRRect(
-                        borderRadius: const BorderRadius.all(
-                            Radius.circular(5.0)
-                        ),
-                        child: Image.asset(
-                          data.image,
-                          height: 85,
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      const SizedBox(height: 3,),
-                      Text(data.title,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.bold,
+                      Expanded(
+                        flex: 1,
+                        child: ClipRRect(
+                          borderRadius: const BorderRadius.all(
+                              Radius.circular(5.0)
+                          ),
+                          child: Image.asset(
+                            data.image,
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
-                      Text(data.subTitle,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: Colors.grey,
-                          fontSize: 12.0,
-                        ),
-                      ),
-                      const SizedBox(height: 3,),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(
-                            Icons.star,
-                            color: Colors.orange,
-                            size: 15.0,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 2.0),
-                            child: Text(data.rating.toString(),
-                              style: const TextStyle(fontSize: 12.0),),
-                          ),
-                          const Text('|'),
-                          const SizedBox(width: 2.0,),
-                          const Icon(
-                            Icons.delivery_dining_sharp,
-                            color: Colors.orange,
-                            size: 15.0,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 2.0),
-                            child: Text(data.duration,
-                              style: const TextStyle(fontSize: 12.0),),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 3,),
-                      Text(currencyFormatter.format(data.price),
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.bold,
+                      Expanded(
+                        flex: 1,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const SizedBox(height: 3,),
+                            Text(data.title,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(data.subTitle,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                color: Colors.grey,
+                                fontSize: 12.0,
+                              ),
+                            ),
+                            const SizedBox(height: 3,),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Icon(
+                                  Icons.star,
+                                  color: Colors.orange,
+                                  size: 15.0,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 2.0),
+                                  child: Text(data.rating.toString(),
+                                    style: const TextStyle(fontSize: 12.0),),
+                                ),
+                                const Text('|'),
+                                const SizedBox(width: 2.0,),
+                                const Icon(
+                                  Icons.delivery_dining_sharp,
+                                  color: Colors.orange,
+                                  size: 15.0,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 2.0),
+                                  child: Text(data.duration,
+                                    style: const TextStyle(fontSize: 12.0),),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 3,),
+                            Text(currencyFormatter.format(data.price),
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],

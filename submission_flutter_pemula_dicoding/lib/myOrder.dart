@@ -130,7 +130,7 @@ class _Content extends State<Content> {
                 children: [
                   const SizedBox(height: 5.0,),
                   SizedBox(
-                    height: 450.0,
+                    height: 330.0,
                     child: ListView.builder(
                         scrollDirection: Axis.vertical,
                         shrinkWrap: true,

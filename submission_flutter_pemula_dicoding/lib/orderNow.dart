@@ -30,16 +30,45 @@ class MainScreen extends StatelessWidget {
         backgroundColor: Colors.orange,
         title: const Text('Order Now'),
       ),
-      body: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.all(10.0),
-            height: 35.0,
-            decoration: BoxDecoration(
-              color: Colors.orange,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: double.infinity,
+              margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
+              padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 20.0),
+              decoration: BoxDecoration(
+                color: Colors.grey,
+              ),
+              child: FloatingActionButton.extended(
+                onPressed: () {},
+                label: Text('Email'),
+                icon: Icon(
+                  Icons.email_outlined,
+                  size: 24.0,
+                ),
+              ),
             ),
-          )
-        ],
+            Container(
+              width: double.infinity,
+              margin: const EdgeInsets.symmetric(horizontal: 10.0),
+              padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 40.0),
+              decoration: BoxDecoration(
+                color: Colors.grey,
+              ),
+              child: FloatingActionButton.extended(
+                backgroundColor: Colors.green,
+                onPressed: () {},
+                label: Text('Whatssapp'),
+                icon: Image(
+                  image: AssetImage('assets/images/ic_wa.png'),
+                )
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
