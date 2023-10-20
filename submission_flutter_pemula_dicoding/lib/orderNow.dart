@@ -39,13 +39,14 @@ class MainScreen extends StatelessWidget {
               width: double.infinity,
               margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
               padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 20.0),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.grey,
               ),
               child: FloatingActionButton.extended(
+                heroTag: "btnEmail",
                 onPressed: () {},
-                label: Text('Email'),
-                icon: Icon(
+                label: const Text('Email'),
+                icon: const Icon(
                   Icons.email_outlined,
                   size: 24.0,
                 ),
@@ -55,14 +56,15 @@ class MainScreen extends StatelessWidget {
               width: double.infinity,
               margin: const EdgeInsets.symmetric(horizontal: 10.0),
               padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 40.0),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.grey,
               ),
               child: FloatingActionButton.extended(
+                heroTag: "buttonWhatsapp",
                 backgroundColor: Colors.green,
                 onPressed: () {},
-                label: Text('Whatssapp'),
-                icon: Image(
+                label: const Text('Whatsapp'),
+                icon: const Image(
                   image: AssetImage('assets/images/ic_wa.png'),
                 )
               ),
